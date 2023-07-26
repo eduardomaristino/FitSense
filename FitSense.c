@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <locale.h>
 
@@ -23,7 +22,7 @@ typedef struct {
 typedef struct {
     int id;
     char nome[50];
-    char descricao[100];
+    char descricao[400];
     float preco;
 } Plano;
 
@@ -47,7 +46,7 @@ typedef struct {
 
 
 
-// ------------------------ VARI¡VEIS GLOBAIS -------------------------
+// ------------------------ VARI√ÅVEIS GLOBAIS -------------------------
 
 Aluno alunos[MAX_ALUNOS];
 int total_alunos = 0;
@@ -66,7 +65,7 @@ int total_instrutores = 0;
 
 
 
-// ------------------------ FUN«’ES DE CADASTRO ------------------------ 
+// ------------------------ FUN√á√ïES DE CADASTRO ------------------------ 
 
 void cadastrarAluno() {
 	
@@ -82,12 +81,13 @@ void cadastrarAluno() {
     printf("ID do aluno: ");
     scanf("%d", &aluno.id);
     
-    // Verifica se o ID j· est· cadastrado no sistema
+    // Verifica se o ID j√° est√° cadastrado no sistema
     for (i = 0; i < total_alunos; i++) {
         if (alunos[i].id == aluno.id) {
         	system("cls");
         	
-            printf("\nATEN«√O: ID DE ALUNO J¡ CADASTRADO NO SISTEMA!\a\n");
+            printf("\nATEN√á√ÉO: ID DE ALUNO J√Å CADASTRADO NO SISTEMA!\a\n");
+            printf("                       ( >_< )                          ");
             printf("\nPor favor, realize um novo cadastro com outro ID de Aluno.\n\n");
             
             system("pause");
@@ -102,10 +102,10 @@ void cadastrarAluno() {
     printf("Data de nascimento (dd/mm/aaaa): ");
     scanf(" %[^\n]", aluno.data_nascimento);
     
-    printf("EndereÁo de email: ");
+    printf("Endere√ßo de email: ");
     scanf(" %[^\n]", aluno.email);
     
-    printf("N˙mero de telefone: ");
+    printf("N√∫mero de telefone: ");
     scanf(" %[^\n]", aluno.telefone);
     
     alunos[total_alunos] = aluno;
@@ -132,12 +132,12 @@ void cadastrarPlano() {
     printf("ID do plano: ");
     scanf("%d", &plano.id);
     
-    // Verifica se o ID j· est· cadastrado no sistema
+    // Verifica se o ID j√° est√° cadastrado no sistema
     for (i = 0; i < total_planos; i++) {
         if (planos[i].id == plano.id) {
         	system("cls");
         	
-            printf("\nATEN«√O: ID DE PLANO J¡ CADASTRADO NO SISTEMA!\a\n");
+            printf("\nATEN√á√ÉO: ID DE PLANO J√Å CADASTRADO NO SISTEMA!\a\n");
             printf("\nPor favor, realize um novo cadastro com outro ID de Plano.\n\n");
             
             system("pause");
@@ -149,7 +149,7 @@ void cadastrarPlano() {
     printf("Nome do plano: ");
     scanf(" %[^\n]", plano.nome);
     
-    printf("DescriÁ„o do plano: ");
+    printf("Descri√ß√£o do plano: ");
     scanf(" %[^\n]", plano.descricao);
     
     printf("Mensalidade: R$");
@@ -170,11 +170,11 @@ void registrarFrequencia() {
 	setlocale(LC_ALL, "");
 	system("cls");
 	
-	// Verifica se j· h· alunos cadastrados
+	// Verifica se j√° h√° alunos cadastrados
     if (total_alunos == 0) {
     	system("cls");
     	
-        printf("\nATEN«√O: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
+        printf("\nATEN√á√ÉO: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, cadastre um aluno primeiro.\n\n");
         
         system("pause");
@@ -184,20 +184,20 @@ void registrarFrequencia() {
 	
     Frequencia reg;
     int i;
-    int alunoEncontrado = 0, frequenciaEncontrada = 0;
+    int alunoEncontrado = 0;
     
     
-    printf("----------------- REGISTRAR FREQU NCIA ----------------\n\n");
+    printf("----------------- REGISTRAR FREQU√äNCIA ----------------\n\n");
     
     printf("ID do registro de frequencia: ");
     scanf("%d", &reg.id);
     
-    // Verifica se o ID j· est· cadastrado no sistema
+    // Verifica se o ID j√° est√° cadastrado no sistema
     for (i = 0; i < total_frequencia; i++) {
         if (frequencia[i].id == reg.id) {
         	system("cls");
         	
-            printf("\nATEN«√O: ID DE FREQU NCIA J¡ CADASTRADO NO SISTEMA.\a\n");
+            printf("\nATEN√á√ÉO: ID DE FREQU√äNCIA J√Å CADASTRADO NO SISTEMA.\a\n");
             printf("\nPor favor, realize um novo cadastro com outro ID para o registro.\n\n");
             
             system("pause");
@@ -209,7 +209,7 @@ void registrarFrequencia() {
     printf("ID do aluno: ");
     scanf("%d", &reg.id_aluno);
     
-    // Verifica se o aluno est· sistema
+    // Verifica se o aluno est√° sistema
     for (i = 0; i < total_alunos; i++) {
         if (alunos[i].id == reg.id_aluno) {
             alunoEncontrado = 1;
@@ -220,8 +220,8 @@ void registrarFrequencia() {
     if (!alunoEncontrado) {
     	system("cls");
     	
-        printf("\nATEN«√O: ALUNO N√O ENCONTRADO NO SISTEMA.\a\n");
-        printf("\nPor favor, realize um novo registro com um ID de Aluno v·lido.\n\n");
+        printf("\nATEN√á√ÉO: ALUNO N√ÉO ENCONTRADO NO SISTEMA.\a\n");
+        printf("\nPor favor, realize um novo registro com um ID de Aluno v√°lido.\n\n");
         
         system("pause");
         system("cls");
@@ -231,13 +231,13 @@ void registrarFrequencia() {
     printf("Data do registro de frequencia (dd/mm/aaaa): ");
     scanf(" %[^\n]", reg.data);
     
-    // Verifica se j· existe registro de frequÍncia
+    // Verifica se j√° existe registro de frequ√™ncia
     for (i = 0; i < total_frequencia; i++) {
         if (frequencia[i].id_aluno == reg.id_aluno && strcmp(frequencia[i].data, reg.data) == 0) {
         	system("cls");
         	
-            printf("ATEN«√O: J¡ FOI ENCONTRADO UM REGISTRO DE FREQU NCIA PARA O ALUNO NA DATA INFORMADA.\a\n");
-            printf("\nN„o È possÌvel alterar a frequÍncia do aluno.\n");
+            printf("ATEN√á√ÉO: J√Å FOI ENCONTRADO UM REGISTRO DE FREQU√äNCIA PARA O ALUNO NA DATA INFORMADA.\a\n");
+            printf("\nN√£o √© poss√≠vel alterar a frequ√™ncia do aluno.\n");
             
             system("pause");
             system("cls");
@@ -245,22 +245,15 @@ void registrarFrequencia() {
         }
     }
 
-	/*
-    if (frequenciaEncontrada) {
-        printf("ATEN«√O: J¡ FOI ENCONTRADO UM REGISTRO DE FREQU NCIA PARA O ALUNO NA DATA INFORMADA.\a\n");
-        printf("\nN„o È possÌvel alterar a frequÍncia do aluno.\n");
-        return;
-    }
-*/
     
-    printf("PresenÁa do aluno (S/N): ");
+    printf("Presen√ßa do aluno (S/N): ");
     scanf(" %c", &reg.presenca);
     
     frequencia[total_frequencia] = reg;
     total_frequencia++;
     
     printf("\n-------------------------------------------------------\n\n");
-    printf("FREQU NCIA REGISTRADA COM SUCESSO!\n\n");
+    printf("FREQU√äNCIA REGISTRADA COM SUCESSO!\n\n");
     
     system("pause");
     system("cls");
@@ -279,12 +272,12 @@ void cadastraInstrutror() {
     printf("Nome do instrutor: ");
     scanf(" %[^\n]", instrutor.nome);
     
-    // Verifica se o instrutor j· est· no sistema
+    // Verifica se o instrutor j√° est√° no sistema
     for (i = 0; i < total_instrutores; i++) {
         if (strcmp(instrutores[i].nome, instrutor.nome) == 0) {
         	system("cls");
         	
-            printf("\nATEN«√O: INSTRUTOR J¡ CADASTRADO NO SISTEMA.\a\n\n");
+            printf("\nATEN√á√ÉO: INSTRUTOR J√Å CADASTRADO NO SISTEMA.\a\n\n");
             
             system("pause");
             system("cls");
@@ -313,11 +306,11 @@ void cadastrarAula() {
     int i;
     int instrutorOK = 0;
     
-    // Verifica se j· h· instrutores cadastrados
+    // Verifica se j√° h√° instrutores cadastrados
     if (total_instrutores == 0) {
     	system("cls");
     	
-        printf("\nATEN«√O: NENHUM INSTRUROR CADASTRADO NO SISTEMA.\a\n");
+        printf("\nATEN√á√ÉO: NENHUM INSTRUROR CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, cadastre um instrutor primeiro.\n\n");
         
         system("pause");
@@ -331,12 +324,12 @@ void cadastrarAula() {
     printf("ID da aula: ");
     scanf("%d", &aula.id);
     
-    // Verifica se o ID j· existe no sistema
+    // Verifica se o ID j√° existe no sistema
     for (i = 0; i < total_aulas; i++) {
         if (aulas[i].id == aula.id) {
         	system("cls");
         	
-            printf("\nATEN«√O: ID DE AULA J¡ CADASTRADO NO SISTEMA.\a\n");
+            printf("\nATEN√á√ÉO: ID DE AULA J√Å CADASTRADO NO SISTEMA.\a\n");
             printf("\nPor favor, realize um novo cadastro com outro ID de Aula..\n\n");
             
             system("pause");
@@ -348,10 +341,10 @@ void cadastrarAula() {
     printf("Nome da aula: ");
     scanf(" %[^\n]", aula.nome);
     
-    printf("Nome do instrutor respons·vel: ");
+    printf("Nome do instrutor respons√°vel: ");
     scanf(" %[^\n]", aula.instrutor);
     
-    // Verifica se o instrutor est· no sistema
+    // Verifica se o instrutor est√° no sistema
     for (i = 0; i < total_instrutores; i++) {
         if (strcmp(instrutores[i].nome, aula.instrutor) == 0) {
             instrutorOK = 1;
@@ -362,7 +355,7 @@ void cadastrarAula() {
     if (!instrutorOK) {
     	system("cls");
     	
-        printf("ATEN«√O: O INSTRUTOR INFORMADO N√O EST¡ CADASTRADO NO SISTEMA.\a\n");
+        printf("ATEN√á√ÉO: O INSTRUTOR INFORMADO N√ÉO EST√Å CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, insira um instrutor que esteja cadastrado.\n");
         
         system("pause");
@@ -370,7 +363,7 @@ void cadastrarAula() {
         return;
     }
     
-    printf("Hor·rio em que a aula È realizada: ");
+    printf("Hor√°rio em que a aula √© realizada: ");
     scanf(" %[^\n]", aula.horario);
     
     aulas[total_aulas] = aula;
@@ -384,18 +377,18 @@ void cadastrarAula() {
 }
 
 
-// ------------------------ FUN«’ES DE RECUPERA«√O ------------------------ 
+// ------------------------ FUN√á√ïES DE RECUPERA√á√ÉO ------------------------ 
 
 void mostrarAlunos() {
 	
 	setlocale(LC_ALL, "");
 	system("cls");
 	
-	// Verifica se j· h· alunos cadastrados
+	// Verifica se j√° h√° alunos cadastrados
     if (total_alunos == 0) {
     	system("cls");
     	
-        printf("\nATEN«√O: ATEN«√O: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
+        printf("\nATEN√á√ÉO: ATEN√á√ÉO: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, cadastre um aluno primeiro.\n\n");
         
         system("pause");
@@ -428,11 +421,11 @@ void mostrarPlanos() {
 	setlocale(LC_ALL, "");
 	system("cls");
 	
-	// Verifica se j· h· alunos cadastrados
+	// Verifica se j√° h√° planos cadastrados
     if (total_planos == 0) {
     	system("cls");
     	
-        printf("\nATEN«√O: NENHUM PLANO CADASTRADO NO SISTEMA.\a\n");
+        printf("\nATEN√á√ÉO: NENHUM PLANO CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, cadastre um plano primeiro.\n\n");
         
         system("pause");
@@ -448,7 +441,7 @@ void mostrarPlanos() {
     	
         printf("ID: %d\n", planos[i].id);
         printf("Nome: %s\n", planos[i].nome);
-        printf("DescriÁ„o: %s\n", planos[i].descricao);
+        printf("Descri√ß√£o: %s\n", planos[i].descricao);
         printf("Mensalidade: R$%.2f\n", planos[i].preco);
         
         printf("\n-------------------------------------------------------\n\n");
@@ -463,11 +456,11 @@ void mostrarFrequencia() {
 	setlocale(LC_ALL, "");
 	system("cls");
 	
-	// Verifica se j· h· alunos cadastrados
+	// Verifica se j√° h√° alunos cadastrados
     if (total_alunos == 0) {
     	system("cls");
     	
-        printf("\nATEN«√O: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
+        printf("\nATEN√á√ÉO: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, cadastre um aluno primeiro.\n\n");
         
         system("pause");
@@ -481,13 +474,13 @@ void mostrarFrequencia() {
     int frequenciaOK= 0, alunoOK = 0;
 
     
-    printf("----------------------- FREQU NCIA --------------------\n\n");
+    printf("----------------------- FREQU√äNCIA --------------------\n\n");
     
     printf("ID do aluno que deseja consultar: ");
     scanf("%d", &id_aluno);
     
     
-    // Verifica se o aluno j· est· no sistema
+    // Verifica se o aluno j√° est√° no sistema
     for (i = 0; i < total_alunos; i++) {
         if (alunos[i].id == id_aluno) {
             alunoOK = 1;
@@ -496,8 +489,8 @@ void mostrarFrequencia() {
     }
 
     if (!alunoOK) {
-        printf("\nATEN«√O: O ID DE ALUNO INFORMADO N√O EST¡ CADASTRADO NO SISTEMA.\a\n");
-        printf("\nPor favor, realize uma nova busca com um ID de Aluno v·lido..\n\n");
+        printf("\nATEN√á√ÉO: O ID DE ALUNO INFORMADO N√ÉO EST√Å CADASTRADO NO SISTEMA.\a\n");
+        printf("\nPor favor, realize uma nova busca com um ID de Aluno v√°lido..\n\n");
             
         system("pause");
         system("cls");
@@ -507,15 +500,15 @@ void mostrarFrequencia() {
     printf("Data (dd/mm/aaaa): ");
     scanf(" %[^\n]", data);
     
-    // Verifica se h· registro de frequÍncia para o aluno ATEN«√O AQUI - ATEN«√O AQUI - ATEN«√O AQUI - ATEN«√O AQUI ------
+    // Verifica se h√° registro de frequ√™ncia para o aluno
     
     for (i = 0; i < total_frequencia; i++) {
-        if (frequencia[i].id_aluno == id_aluno) {
+        if (frequencia[i].id_aluno == id_aluno && strcmp(frequencia[i].data, data) == 0) {
             frequenciaOK = 1;
             
-            printf("Frequencia encontrada:\n");
+            printf("\nREGISTRO DE FREQU√äNCIA ENCONTRADO\n");
             printf("Data: %s\n", frequencia[i].data);
-            printf("Presenca: %c\n", frequencia[i].presenca);
+            printf("Presenca do aluno: %c\n", frequencia[i].presenca);
             
             printf("\n-------------------------------------------------------\n\n");
         }
@@ -524,41 +517,13 @@ void mostrarFrequencia() {
     if (!frequenciaOK) {
     	system("cls");
     	
-        printf("ATEN«√O: N√O H¡ REGISTRO DE FREQU NCIA PARA O ALUNO INFORMADO NA DATA ESPECIFICADA.\a\n");
+        printf("ATEN√á√ÉO: N√ÉO H√Å REGISTRO DE FREQU√äNCIA PARA O ALUNO INFORMADO NA DATA ESPECIFICADA.\a\n");
     }
     
-    /* Erro vÈi fei
-    for (i = 0; i < total_frequencia; i++) {
-    	if (frequencia[i].id_aluno == id_aluno) {
-            if (strcmp(frequencia[i].data, data) == 0) {
-                frequenciaOK = 1;
-                printf("Frequencia encontrada:\n");
-                printf("Data: %s\n", frequencia[i].data);
-                printf("PresenÁa: %c\n", frequencia[i].presenca);
-                break;
-            }
-        }
-            
-        if (frequenciaOK == 0) {
-            printf("ATEN«√O: N√O H¡ REGISTRO DE FREQU NCIA PARA O ALUNO INFORMADO NA DATA ESPECIFICADA.\a\n");
-		
-            system("pause");
-            system("cls");
-            return;
-        }
-	}
-	
-	if (frequencia[i].id_aluno == id_aluno && strcmp(frequencia[i].data, data) == ) {
-        printf("ATEN«√O: O ALUNO INFORMADO AINDA N√O POSSUI FREQU NCIA CADASTRADA NO SISTEMA.\n");
-    }    
-    */
-
     
-    printf("\nFrequÍncia do aluno no dia %s:\n", data);
-    
-
     system("pause");
     system("cls");
+    
 }
 
 void mostrarAulasInstrutor() {
@@ -566,11 +531,11 @@ void mostrarAulasInstrutor() {
 	setlocale(LC_ALL, "");
 	system("cls");
 	
-	 // Verifica se j· h· instrutores cadastrados
+	 // Verifica se j√° h√° instrutores cadastrados
     if (total_instrutores == 0) {
     	system("cls");
     	
-        printf("\nATEN«√O: NENHUM INSTRUROR CADASTRADO NO SISTEMA.\a\n");
+        printf("\nATEN√á√ÉO: NENHUM INSTRUROR CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, cadastre um instrutor primeiro.\n\n");
         
         system("pause");
@@ -589,7 +554,7 @@ void mostrarAulasInstrutor() {
     printf("Nome do instrutor: ");
     scanf(" %[^\n]", instrutor.nome);
     
-    // Verifica se o instrutor est· cadastrado
+    // Verifica se o instrutor est√° cadastrado
     for (i = 0; i < total_instrutores; i++) {
         if (strcmp(instrutores[i].nome, instrutor.nome) == 0) {
             instrutorOK = 1;
@@ -600,8 +565,8 @@ void mostrarAulasInstrutor() {
     if (!instrutorOK) {
     	system("cls");
     	
-        printf("\nATEN«√O: INSTRUTOR N√O CADASTRADO NO SISTEMA\a\n");
-        printf("\nPor favor, insira um instrutor v·lido.\n");
+        printf("\nATEN√á√ÉO: INSTRUTOR N√ÉO CADASTRADO NO SISTEMA\a\n");
+        printf("\nPor favor, insira um instrutor v√°lido.\n");
         
         system("pause");
         system("cls");
@@ -627,7 +592,7 @@ void mostrarAulasInstrutor() {
     if (!ministraAulas) {
     	system("pause");
     	
-        printf("ATEN«√O: O INSTRUTOR INFORMADO AINDA N√O MINISTRA NENHUMA AULA.\a\n");
+        printf("ATEN√á√ÉO: O INSTRUTOR INFORMADO AINDA N√ÉO MINISTRA NENHUMA AULA.\a\n");
     }
     
     system("pause");
@@ -639,11 +604,11 @@ void mostrarAlunosAusentes() {
 	setlocale(LC_ALL, "");
 	system("cls");
 	
-	// Verifica se j· h· alunos cadastrados
+	// Verifica se j√° h√° alunos cadastrados
     if (total_alunos == 0) {
     	system("cls");
     	
-        printf("\nATEN«√O: ATEN«√O: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
+        printf("\nATEN√á√ÉO: ATEN√á√ÉO: NENHUM ALUNO CADASTRADO NO SISTEMA.\a\n");
         printf("\nPor favor, cadastre um aluno primeiro.\n\n");
         
         system("pause");
@@ -652,29 +617,30 @@ void mostrarAlunosAusentes() {
     }
 	
     char data[11];
-    int i, j;
-	int ausentes = 0, presente = 0, frequenciaOK = 0;
+    int i;
+	int frequenciaOK = 0;
     
     printf("Recuperar alunos ausentes em uma data\n\n");
     
     printf("Data (dd/mm/aaaa): ");
     scanf(" %[^\n]", data);
     
+    printf("\n-------------------------------------------------------\n\n");
     printf("\nAlunos ausentes no dia %s:\n", data);
     
-    // Verifica se h· registros na data
+    // Verifica se h√° registros na data
     for (i = 0; i < total_frequencia; i++) {
         if (strcmp(frequencia[i].data, data) == 0 && frequencia[i].presenca == 'N') {
             frequenciaOK = 1;
             int id_aluno = frequencia[i].id_aluno;
             
-            printf("ID: %d\n", id_aluno);
+            printf("Aluno com ID: %d\n", id_aluno);
             printf("\n");
         }
     }
 
     if (!frequenciaOK) {
-        printf("ATEN«√O: N√O H¡ REGISTROS DE AUS NCIAS PARA A DATA INFORMADA.\a\n");
+        printf("ATEN√á√ÉO: N√ÉO H√Å REGISTROS DE AUS√äNCIAS PARA A DATA INFORMADA.\a\n");
     }
     
     
@@ -683,7 +649,7 @@ void mostrarAlunosAusentes() {
 }
 
 
-// ------------------------ FUN«√O PRINCIPAL ------------------------ 
+// ------------------------ FUN√á√ÉO PRINCIPAL ------------------------ 
 int main() {
 	
 	setlocale(LC_ALL, "");
@@ -691,8 +657,8 @@ int main() {
     int opcao, escolha;
     
     do {
-        printf("---------------- Bem-vindo ao FitSense ----------------\n");
-        printf("                          ^_^                          \n\n");
+        printf("---------------- Bem-vindo ao FitSense ----------------\n\n");
+        printf("                         \\|^_^|/                          \n\n");
         printf("------------------------- MENU ------------------------\n\n");
         
         printf("1 - Cadastrar aluno\n");
@@ -704,7 +670,7 @@ int main() {
         printf("7 - Sair\n\n");
         
         printf("-------------------------------------------------------\n");
-        printf("\nDIGITE A OP«√O DESEJADA: ");
+        printf("\nDIGITE A OP√á√ÉO DESEJADA: ");
         scanf("%d", &opcao);
         printf("\n");
 
@@ -735,13 +701,13 @@ int main() {
             	printf("Escolha quais dados deseja exibir.\n");
             	printf("1 - Alunos matriculados no sitema\n");
                 printf("2 - Planos de treinamento da academia\n");
-                printf("3 - FrequÍncia de um aluno\n");
+                printf("3 - Frequ√™ncia de um aluno\n");
                 printf("4 - Aulas ministradas por um instrutor\n");
                 printf("5 - Alunos ausentes em uma data\n\n");
                 
                 printf("-------------------------------------------------------\n");
                 
-                printf("\nDIGITE A OP«√O DESEJADA: ");
+                printf("\nDIGITE A OP√á√ÉO DESEJADA: ");
                 scanf("%d", &escolha);
                 printf("\n");
                 
@@ -768,12 +734,10 @@ int main() {
                 opcao = 0;
                 break;
             default:
-                printf("\nA OP«√O DIGITADA … INV¡LIDA!\a\n");
+                printf("\nA OP√á√ÉO DIGITADA √â INV√ÅLIDA!\a\n");
                 break;
         }
     } while (opcao != 0);
 
     return 0;
 }
-
-
